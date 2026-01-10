@@ -1,17 +1,19 @@
 @extends('layouts.base')
 
+
 @section('content')
-    <h1>Estudiantes</h1>
+
+    <h1>Cursos</h1>
     <div class="row">
         <div class="col-12">
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div
                         class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 justify-content-between d-flex align-items-center px-3">
-                        <h6 class="text-white text-capitalize ps-3">Listado de Estudiantes</h6>
+                        <h6 class="text-white text-capitalize ps-3">Listado de Cursos</h6>
                         <button type="button" class="btn bg-gradient-primary" id="boton-agregar"
-                            value="{{ route('estudiantes.create') }}">
-                            Agregar Estudiante
+                            value="{{ route('cursos.create') }}">
+                            Agregar Curso
                         </button>
                     </div>
                 </div>
@@ -74,10 +76,11 @@
         </div>
     </div>
 
+
     @include('estudiante.modal')
+
+
 @endsection
-
-
 
 @section('css')
     {{-- <link rel="stylesheet" href="//cdn.datatables.net/2.3.6/css/dataTables.dataTables.min.css"> --}}
@@ -89,5 +92,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.3.6/js/dataTables.bootstrap5.js"></script>
-    <script src="{{ url('/assets/js/admin/estudiante.js')}}"></script>
+    {{-- <script src="{{ url('/assets/js/admin/curso.js')}}"></script> --}}
 @endsection

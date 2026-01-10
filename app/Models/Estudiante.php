@@ -25,8 +25,19 @@ class Estudiante extends Model
     ];
 
     protected $casts = [
-        'estado' => 'boolean',
         'fecha_nacimiento' => 'date',
+    ];
+
+
+    static $rules = [
+        'nombre' => 'required|string|max:150',
+        'paterno'=> 'nullable|required_if:materno,null|string|max:150',
+        'materno' => 'nullable|required_if:paterno,null|string|max:150',
+        'ci' => 'required|regex:/^\d{6,15}(-[A-Za-z0-9]*)?$/|unique:estudiante,ci',
+        'foto' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'fecha_nacimiento' => 'required|date',
+        'estado' => 'required|in:ACTIVO,INACTIVO',
+
     ];
 
 

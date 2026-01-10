@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Curso;
 
 class CursoController extends Controller
 {
@@ -11,7 +12,7 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        return view('curso.index');
     }
 
     /**
@@ -19,7 +20,8 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $curso = new Curso();
+        return view('curso.formulario',compact('curso'));
     }
 
     /**
