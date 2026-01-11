@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Estudiante;
 
 use DataTables;
+use PhpParser\Node\Expr\FuncCall;
 
 class EstudianteController extends Controller
 {
@@ -206,4 +207,31 @@ class EstudianteController extends Controller
 
         return $nombreArchivo;
     }
+
+
+
+
+    public function buscarEstudiantes(Request $request)
+    {
+
+        $busqueda = $request->input('term');
+        $busqueda = '%'.str_ireplace(' ', '%', $busqueda).'%';
+
+        $resultado = Estudiante::selectRaw("id, CONCAT(nombre,' ',paterno,' ',materno, ' - ', ci) AS text")
+                                    ->where('nombre', 'like', $busqueda)
+                                    ->orWhere('paterno', 'like', $busqueda)
+                                    ->orWhere('materno', 'like', $busqueda)
+                                    ->orWhere('ci', 'like', $busqueda)
+                                    ->orWhereRaw("CONCAT(nombre,' ',paterno,' ',materno) LIKE ?", [$busqueda])
+                                    ->orWhereRaw("CONCAT(paterno,' ',nombre,' ',materno) LIKE ?", [$busqueda])
+                                    ->orWhereRaw("CONCAT(paterno,' ',paterno,' ',nombre) LIKE ?", [$busqueda])
+                                    ->limit(10)
+                                    ->get();
+
+        return response()->json(['results' => $resultado]);
+
+
+    }
+
+
 }

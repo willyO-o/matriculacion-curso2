@@ -41,6 +41,18 @@ class Estudiante extends Model
     ];
 
 
+    public function cursos()
+    {
+        return $this->belongsToMany(
+            Curso::class,
+            'matriculacion',
+            'id_estudiante',
+            'id_curso'
+        )
+        ->withPivot('nro_matricula', 'estado_matriculacion', 'fecha_matriculacion');
+    }
+
+
 
 
 }

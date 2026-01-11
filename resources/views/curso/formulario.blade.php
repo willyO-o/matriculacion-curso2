@@ -9,7 +9,7 @@
 @endphp
 
 
-<form id="formulario-estudiante" method="POST" action="{{ $action }}" enctype="multipart/form-data">
+<form id="formulario-curso" method="POST" action="{{ $action }}" >
     <div class="modal-header">
         <h5 class="modal-title font-weight-normal" id="exampleModalLabel">
             @if ($curso->id)

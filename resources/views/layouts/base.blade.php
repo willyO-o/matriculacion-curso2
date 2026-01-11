@@ -15,8 +15,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     @include('layouts.head')
+    @yield('css')
+
+
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss'])
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -31,7 +34,7 @@
 
         <div class="container-fluid py-2">
 
-             @yield('content')
+            @yield('content')
 
             @include('layouts.footer')
         </div>
@@ -48,6 +51,7 @@
 
     @yield('js')
 
+    @vite(['resources/js/app.js'])
 
     {{-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
