@@ -61,6 +61,10 @@ class CursoController extends Controller
                         <i class="fas fa-user-plus"></i>
                         matricular
                         </button>
+                        <button value="' . route('matriculaciones.estudiantes-matriculados', $curso->id) . '" class="btn btn-info btn-sm btn-matricular">
+                        <i class="fas fa-users"></i>
+                        Ver matriculados
+                        </button>
                         ';
                 })
                 ->rawColumns(['estado_curso', 'id'])

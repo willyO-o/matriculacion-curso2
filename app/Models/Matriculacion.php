@@ -29,4 +29,22 @@ class Matriculacion extends Model
         return $nroMatricula;
 
     }
+
+    public function estudiante()
+    {
+        return $this->hasOne(
+            Estudiante::class,
+            'id',
+            'id_estudiante'
+        );
+    }
+    public function curso()
+    {
+        return $this->hasOne(
+            Curso::class,
+            'id',
+            'id_curso'
+        );
+    }
+
 }

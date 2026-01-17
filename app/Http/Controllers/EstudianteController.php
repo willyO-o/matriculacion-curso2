@@ -217,7 +217,7 @@ class EstudianteController extends Controller
         $busqueda = $request->input('term');
         $busqueda = '%'.str_ireplace(' ', '%', $busqueda).'%';
 
-        $resultado = Estudiante::selectRaw("id, CONCAT(nombre,' ',paterno,' ',materno, ' - ', ci) AS text")
+        $resultado = Estudiante::selectRaw("id, CONCAT(nombre,' ',ifnull(paterno, ''),' ',ifnull(materno, ''), ' - ', ci) AS text")
                                     ->where('nombre', 'like', $busqueda)
                                     ->orWhere('paterno', 'like', $busqueda)
                                     ->orWhere('materno', 'like', $busqueda)

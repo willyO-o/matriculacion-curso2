@@ -17,9 +17,9 @@
     @include('layouts.head')
     @yield('css')
 
+    <link rel="stylesheet" href="{{ url('/assets/css/esilos-build.css') }}">
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss'])
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -49,9 +49,11 @@
     @include('layouts.scripts')
 
 
+
+
     @yield('js')
 
-    @vite(['resources/js/app.js'])
+
 
     {{-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">

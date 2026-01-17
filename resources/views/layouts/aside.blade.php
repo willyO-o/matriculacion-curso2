@@ -7,7 +7,7 @@
             target="_blank">
             <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img" width="26" height="26"
                 alt="main_logo">
-            <span class="ms-1 text-sm text-dark">Creative Tim</span>
+            <span class="ms-1 text-sm text-dark">Mi sistema Laravel</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0 mb-2">
@@ -20,57 +20,22 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/tables.html">
+                <a class="nav-link text-dark" href="{{ route('estudiantes.index') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Tables</span>
+                    <span class="nav-link-text ms-1">Estudiantes</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/billing.html">
+                <a class="nav-link text-dark" href="{{ route('cursos.index') }}">
                     <i class="material-symbols-rounded opacity-5">receipt_long</i>
-                    <span class="nav-link-text ms-1">Billing</span>
+                    <span class="nav-link-text ms-1">Cursos</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/virtual-reality.html">
-                    <i class="material-symbols-rounded opacity-5">view_in_ar</i>
-                    <span class="nav-link-text ms-1">Virtual Reality</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/rtl.html">
-                    <i class="material-symbols-rounded opacity-5">format_textdirection_r_to_l</i>
-                    <span class="nav-link-text ms-1">RTL</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/notifications.html">
-                    <i class="material-symbols-rounded opacity-5">notifications</i>
-                    <span class="nav-link-text ms-1">Notifications</span>
-                </a>
-            </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages
-                </h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/profile.html">
-                    <i class="material-symbols-rounded opacity-5">person</i>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/sign-in.html">
-                    <i class="material-symbols-rounded opacity-5">login</i>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/sign-up.html">
-                    <i class="material-symbols-rounded opacity-5">assignment</i>
-                    <span class="nav-link-text ms-1">Sign Up</span>
-                </a>
-            </li>
+
+
+
+
+
         </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">

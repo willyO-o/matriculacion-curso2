@@ -10,6 +10,9 @@ $(function () {
     let table = $('#tabla-curso').DataTable({
         serverSide: true,
         ajax: '/cursos',
+        language: {
+            url: window.location.origin + '/assets/lang/es-ES.json'
+        },
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'codigo', name: 'codigo' },
@@ -100,15 +103,15 @@ $(function () {
 
 
 
-                            $('#select-estudiantes').select2({
-                                dropdownParent: $('#modal-content'),
-                                minimumInputLength: 3,
-                                ajax: {
-                                    url: '/buscar-estudiantes',
-                                    dataType: 'json'
-                                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-                                }
-                            })
+                        $('#select-estudiantes').select2({
+                            dropdownParent: $('#modal-content'),
+                            minimumInputLength: 3,
+                            ajax: {
+                                url: '/buscar-estudiantes',
+                                dataType: 'json'
+                                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                            }
+                        })
                     })
             })
 
@@ -195,6 +198,72 @@ $(function () {
 
 
 
+
+    })
+
+
+    // evento de boton desmatricular
+
+    $(document).on('click', '.btn-desmatricular', function (eventon) {
+        eventon.preventDefault();
+
+        const url = $(this).val();
+
+        const botonActual = $(this);
+
+
+
+        const token = $('meta[name="csrf-token"]').attr('content');
+
+
+        Swal.fire({
+            title: "Esta usted seguro?",
+            text: "Desea quitar el estudiante del curso?, Esta accion no se puede revertir!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, desmatricular!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //se ejecuta cuano se confirmo el mensaje
+
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    data: {
+                        _token: token
+                    }
+
+                }).done(function (respuesta) {
+
+                    botonActual.closest('tr').remove();
+
+
+                    Swal.fire({
+                        title: respuesta.mensaje,
+                        text: "El estudiante ha sido desmatriculado correctamente.",
+                        icon: "success"
+                    });
+
+
+                })
+
+
+
+            }
+        });
+
+
+    })
+
+
+    $(document).on('click', '.btn-imprimir-matricula', function (evento) {
+        evento.preventDefault();
+
+        const url = $(this).val();
+
+        window.open(url, 'Imprimir Matricula', 'width=500,height=300');
 
     })
 

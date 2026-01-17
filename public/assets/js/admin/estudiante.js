@@ -9,7 +9,7 @@ $(function () {
         serverSide: true,
         ajax: '/estudiantes',
         language:{
-            url: '//cdn.datatables.net/plug-ins/2.3.6/i18n/es-ES.json'
+            url: window.location.origin + '/assets/lang/es-ES.json'
         },
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },

@@ -39,7 +39,7 @@ class Curso extends Model
             'id_curso',
             'id_estudiante'
         )
-        ->withPivot('nro_matricula', 'estado_matriculacion', 'fecha_matriculacion');
+        ->withPivot('nro_matricula', 'estado_matriculacion', 'fecha_matriculacion','id');
 
     }
 
